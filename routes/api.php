@@ -11,3 +11,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/userdata', [UserDataController::class, 'getUserData']);
 Route::post('/send-location', [UserDataController::class, 'saveLocation']);
+Route::get('/test-v1', function () {
+    return response()->json([
+        'message' => 'API is working fine!',
+        'status' => 'success'
+    ]);
+});
