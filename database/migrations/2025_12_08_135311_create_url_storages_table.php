@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('url_storages', function (Blueprint $table) {
-            $table->id();
+            $table->uuid()->primary()->unique();
             $table->string('original_url');
             $table->string('shortened_url')->unique();
             $table->integer('click_count')->default(0);
