@@ -12,10 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('url_storages', function (Blueprint $table) {
-            $table->uuid()->primary()->unique();
-            $table->string('original_url');
+            $table->uuid('id')->primary();
+            $table->text('original_url');
             $table->string('shortened_url')->unique();
             $table->integer('click_count')->default(0);
+            $table->string('user_id')->nullable();
+            $table->boolean('is_temporary')->default(false);
             $table->timestamps();
         });
     }

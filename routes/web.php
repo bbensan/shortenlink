@@ -31,6 +31,7 @@ Route::prefix('info')->group( function() {
 });
 
 Route::post('/url-shorten-func', [UrlStorageController::class, 'shortenUrl'])->name('shorten-url');
+Route::get('/{shortenedUrl}', [UrlStorageController::class, 'redirectToOriginalUrl'])->name('redirect-to-original-url');
 
 Route::prefix('auth')->group( function() {
   Route::get('/login', Login::class)->name('info-login');

@@ -53,10 +53,10 @@
     class="fixed top-nav-position left-0 w-full nav-blur shadow-md z-40 px-6 py-4 transition-all duration-300 ease-in-out md:hidden"
     :class="mobileMenuOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'"
   >
-    <a href="{{ route('info-features') }}" wire:navigate class="block text-gray-700 text-center border-b border-gray-200 py-2 hover:text-gray-900">Features</a>
-    <a href="{{ route('info-pages') }}" wire:navigate class="block text-gray-700 text-center border-b border-gray-200 py-2 hover:text-gray-900">Pages</a>
-    <a href="{{ route('info-blog') }}" wire:navigate class="block text-gray-700 text-center border-b border-gray-200 py-2 hover:text-gray-900">Blog</a>
-    <a href="{{ route('info-contact') }}" wire:navigate class="block text-gray-700 text-center py-2 hover:text-gray-900">Contact</a>
-    <a href="{{ route('info-register') }}" class="block px-6 py-2 rounded-full btn-highlight mt-4 text-white font-medium text-center">Get Started</a>
+    <a href="{{ route('info-features') }}" wire:navigate @click="closeMenu()" class="block text-gray-700 text-center border-b border-gray-200 py-2 hover:text-gray-900">Features</a>
+    <a href="{{ route('info-pages') }}" wire:navigate @click="closeMenu()" class="block text-gray-700 text-center border-b border-gray-200 py-2 hover:text-gray-900">Pages</a>
+    <a href="{{ route('info-blog') }}" wire:navigate @click="closeMenu()" class="block text-gray-700 text-center border-b border-gray-200 py-2 hover:text-gray-900">Blog</a>
+    <a href="{{ route('info-contact') }}" wire:navigate @click="closeMenu()" class="block text-gray-700 text-center py-2 hover:text-gray-900">Contact</a>
+    <a href="{{ route('info-register') }}" @click="closeMenu()" class="block px-6 py-2 rounded-full btn-highlight mt-4 text-white font-medium text-center">Get Started</a>
   </div>
 </div>

@@ -26,6 +26,9 @@
   @livewireStyles
   <link rel="stylesheet" href="{{ asset('assets/css/lovilink.css') }}">
   <link rel="icon" type="image/x-icon" href="{{ asset('assets/logo/lovilink.ico') }}">
+  <style>
+    [x-cloak] { display: none !important; }
+  </style>
 </head>
 <body>
 
