@@ -1,6 +1,6 @@
 <div>
     <!-- Blog Page Layout -->
-    <section class="pt-24 pb-16 bg-gray-50">
+    <section class="mt-16 pt-16 pb-16 bg-gray-50">
         <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-4 gap-12">
         <!-- Main Blog Content -->
         <div class="lg:col-span-3 space-y-10">
@@ -23,7 +23,7 @@
             
                 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">A Brand Called LovIdea</h2>
                 <p class="mb-5">
-                Together with <strong>Feby</strong> (My Precious Friend), my creative partner, we envisioned <strong class="gradient-text">LovIdea</strong> — a network of small, artistic products ranging from stickers, tote bags, to 3D printed collectibles. Lovilink became our first bridge — digital infrastructure before physical craft.
+                Together with my creative partner, we envisioned <strong class="gradient-text">LovIdea</strong> — a network of small, artistic products ranging from stickers, tote bags, to 3D printed collectibles. Lovilink became our first bridge — digital infrastructure before physical craft.
                 </p>
             
                 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Why Free and Open Source?</h2>

@@ -1,6 +1,6 @@
 <div>
     <!-- Hero Section -->
-    <section class="gradient-background hero-container">
+    <section class="mt-16 gradient-background hero-container">
         <div class="container mx-auto px-6 py-16 md:py-24">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0">
@@ -12,19 +12,166 @@
                     <p class="mt-4 text-xl text-gray-600">
                         Create memorable, short links in seconds with Lovilink's simple, powerful URL shortener.
                     </p>
-                    <div class="mt-8">
-                        <div class="flex flex-col sm:flex-row">
-                            <div class="input-container flex-1 rounded-l-full overflow-hidden mobile-adjustment-tr">
-                                <input id="animated-placeholder" type="text" placeholder="Paste your long URL here" class="w-full px-6 py-4 focus:outline-none placeholder-gray-400 text-gray-900"/>
-
+                    <div class="mt-8" x-data="{ 
+                        showResult: false,
+                        animatedPlaceholder: '',
+                        isAnimating: false,
+                        isLoading: false,
+                        currentIndex: 0,
+                        typingSpeed: 70,
+                        deletingSpeed: 40,
+                        pauseAfterTyping: 1500,
+                        pauseBeforeReplay: 10000,
+                        longUrl: 'https://example.com/very/long/url/path',
+                        shortUrl: 'https://lovilink.com/myurl',
+                        
+                        init() {
+                            // Start animation only if input is not focused and has no value
+                            this.startAnimation();
+                        },
+                        
+                        startAnimation() {
+                            if (this.isAnimating) return;
+                            this.isAnimating = true;
+                            this.animatedPlaceholder = '';
+                            this.currentIndex = 0;
+                            
+                            // Type longUrl
+                            this.typePlaceholder(this.longUrl, () => {
+                                // Pause after typing longUrl
+                                setTimeout(() => {
+                                    // Delete all characters
+                                    this.deletePlaceholder(() => {
+                                        this.currentIndex = 0;
+                                        // Type shortUrl
+                                        this.typePlaceholder(this.shortUrl, () => {
+                                            // Pause 10 seconds after showing shortUrl before replay
+                                            setTimeout(() => {
+                                                // Delete all characters
+                                                this.deletePlaceholder(() => {
+                                                    // Reset and loop
+                                                    this.isAnimating = false;
+                                                    this.startAnimation();
+                                                });
+                                            }, this.pauseBeforeReplay);
+                                        });
+                                    });
+                                }, this.pauseAfterTyping);
+                            });
+                        },
+                        
+                        typePlaceholder(text, callback) {
+                            if (this.currentIndex < text.length) {
+                                this.animatedPlaceholder += text.charAt(this.currentIndex);
+                                this.currentIndex++;
+                                setTimeout(() => this.typePlaceholder(text, callback), this.typingSpeed);
+                            } else if (callback) {
+                                callback();
+                            }
+                        },
+                        
+                        deletePlaceholder(callback) {
+                            if (this.animatedPlaceholder.length > 0) {
+                                this.animatedPlaceholder = this.animatedPlaceholder.slice(0, -1);
+                                setTimeout(() => this.deletePlaceholder(callback), this.deletingSpeed);
+                            } else if (callback) {
+                                callback();
+                            }
+                        },
+                        
+                        stopAnimation() {
+                            this.isAnimating = false;
+                        },
+                        
+                        restartAnimation() {
+                            if (!$wire.url) {
+                                this.startAnimation();
+                            }
+                        }
+                    }">
+                        <form wire:submit.prevent="shortenUrl">
+                            <div class="flex flex-col sm:flex-row">
+                                <div class="input-container flex-1 rounded-l-full overflow-hidden mobile-adjustment-tr">
+                                    <input 
+                                        wire:model="url"
+                                        id="animated-placeholder" 
+                                        type="text" 
+                                        :placeholder="animatedPlaceholder" 
+                                        class="w-full px-6 py-4 focus:outline-none placeholder-gray-400 text-gray-900"
+                                        :disabled="isLoading"
+                                        @focus="stopAnimation()"
+                                        @blur="restartAnimation()"
+                                    />
+                                </div>
+                                <button 
+                                    type="submit"
+                                    class="btn-highlight px-8 py-4 rounded-r-full text-white font-medium flex items-center justify-center mt-2 sm:mt-0 mobile-adjustment-br"
+                                    :disabled="isLoading"
+                                    :class="{ 'opacity-50 cursor-not-allowed': isLoading }"
+                                >
+                                    <span wire:loading.remove wire:target="shortenUrl">Shorten</span>
+                                    <span wire:loading wire:target="shortenUrl" class="flex items-center">
+                                        <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                        </svg>
+                                        Shortening...
+                                    </span>
+                                    <svg wire:loading.remove wire:target="shortenUrl" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
                             </div>
-                            <button class="btn-highlight px-8 py-4 rounded-r-full text-white font-medium flex items-center justify-center mt-2 sm:mt-0 mobile-adjustment-br">
-                                Shorten
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
+                        </form>
+
+                        <!-- Error Message -->
+                        <div x-show="$wire.error" 
+                             x-transition:enter="transition ease-out duration-300"
+                             x-transition:enter-start="opacity-0 transform translate-y-2"
+                             x-transition:enter-end="opacity-100 transform translate-y-0"
+                             x-transition:leave="transition ease-in duration-200"
+                             x-transition:leave-start="opacity-100"
+                             x-transition:leave-end="opacity-0"
+                             class="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg"
+                             wire:ignore>
+                            <p class="font-semibold">Error</p>
+                            <p class="mt-1" x-text="$wire.error"></p>
+                        </div>
+
+                        <!-- Success Message -->
+                        <div x-show="$wire.shortenedUrl" 
+                             x-transition:enter="transition ease-out duration-300"
+                             x-transition:enter-start="opacity-0 transform translate-y-2"
+                             x-transition:enter-end="opacity-100 transform translate-y-0"
+                             x-transition:leave="transition ease-in duration-200"
+                             x-transition:leave-start="opacity-100"
+                             x-transition:leave-end="opacity-0"
+                             class="mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg"
+                             x-data="{ copied: false }"
+                             wire:ignore>
+                            <p class="font-semibold">Success!</p>
+                            <p class="mt-2">
+                                Your shortened URL: 
+                                <a :href="'/' + $wire.shortenedUrl" 
+                                   target="_blank" 
+                                   class="underline font-medium"
+                                   x-text="window.location.origin + '/' + $wire.shortenedUrl">
+                                </a>
+                            </p>
+                            <button 
+                                @click="
+                                    navigator.clipboard.writeText(window.location.origin + '/' + $wire.shortenedUrl);
+                                    copied = true;
+                                    setTimeout(() => copied = false, 2000);
+                                "
+                                class="mt-2 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors"
+                                :class="{ 'bg-green-700': copied }"
+                            >
+                                <span x-show="!copied">Copy Link</span>
+                                <span x-show="copied">Copied!</span>
                             </button>
                         </div>
+
                         <p class="text-gray-600 mt-2 text-sm">No registration required - it's 100% free!</p>
                     </div>
                 </div>
@@ -138,47 +285,5 @@
         </div>
     </section>
 
-    <script>
-        $(function () {
-          const $input = $("#animated-placeholder");
-          if (!$input.length || $input.data("animated")) return;
-          $input.data("animated", true);
-    
-          const longUrl = "https://example.com/very/long/url/path";
-          const shortUrl = "https://lovilink.com/myurl";
-          const typingSpeed = 70;
-          const deletingSpeed = 40;
-          const pauseAfterTyping = 1500;
-          let i = 0;
-    
-          function typePlaceholder(text, callback) {
-            if (i < text.length) {
-              $input.attr("placeholder", $input.attr("placeholder") + text.charAt(i));
-              i++;
-              setTimeout(() => typePlaceholder(text, callback), typingSpeed);
-            } else if (callback) {
-              setTimeout(callback, pauseAfterTyping);
-            }
-          }
-    
-          function deletePlaceholder(callback) {
-            if (i > 0) {
-              $input.attr("placeholder", $input.attr("placeholder").slice(0, -1));
-              i--;
-              setTimeout(() => deletePlaceholder(callback), deletingSpeed);
-            } else if (callback) {
-              callback();
-            }
-          }
-    
-          $input.attr("placeholder", "");
-          typePlaceholder(longUrl, () => {
-            deletePlaceholder(() => {
-              i = 0;
-              typePlaceholder(shortUrl);
-            });
-          });
-        });
-      </script>
 
 </div>

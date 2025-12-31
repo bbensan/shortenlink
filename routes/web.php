@@ -14,6 +14,7 @@ use App\Livewire\Page\Register;
 use App\Livewire\Page\Templates;
 use App\Livewire\Page\CookiePolicy;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UrlStorageController;
 
 Route::get('/', Home::class)->name('home');
 Route::prefix('info')->group( function() {
@@ -29,12 +30,7 @@ Route::prefix('info')->group( function() {
   Route::get('/cookie', CookiePolicy::class)->name('info-cookie');
 });
 
-// Route::get('/test', function () {
-//   $ip = request()->ip();
-//   return view('test', [
-//     'ip' => $ip,
-//   ]);
-// });
+Route::post('/url-shorten-func', [UrlStorageController::class, 'shortenUrl'])->name('shorten-url');
 
 Route::prefix('auth')->group( function() {
   Route::get('/login', Login::class)->name('info-login');

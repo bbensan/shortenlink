@@ -1,6 +1,6 @@
 <div>
     <!-- About: Introduction -->
-    <section class="pt-24 pb-16 bg-gray-900">
+    <section class="pt-16 pb-16 bg-gray-900">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-12 text-gray-200">
                 What is Lovilink?
@@ -9,7 +9,7 @@
                 <div class="card card-primary border-l border-r border-b border-gray-700 p-6 rounded-lg shadow-md">
                     <h3 class="text-xl font-semibold text-gray-200 mb-2">A Simple Start for a Bigger Vision</h3>
                     <p class="text-gray-300">
-                        Lovilink is an original digital product created by <strong>Tev Immanuel</strong>, developed as the first step toward building the broader vision of <strong>LovIdea</strong> — a creative brand founded by Tev and Feby.
+                        Lovilink is an original digital product created by <strong>Tev Immanuel</strong>, developed as the first step toward building the broader vision of <strong>LovIdea</strong> — a creative brand founded by Tev.
                     </p>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                     </p>
                 </div>
                 <div class="card card-highlight bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Feby</h3>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Freesia</h3>
                     <p class="text-gray-700">
                         A creative partner behind LovIdea, responsible for producing unique art products such as stickers, tote bags, and 3D printed collectibles — all crafted with passion.
                     </p>

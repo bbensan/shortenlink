@@ -1,6 +1,6 @@
 <div>
     <!-- Feedback Intro Section -->
-    <section class="pt-24 pb-16 bg-gray-800">
+    <section class="pt-16 pb-16 bg-gray-800">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-12 text-gray-200">
                 We Value Your Feedback
