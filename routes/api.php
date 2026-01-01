@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\UserDataController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\UserDataController;
+use App\Http\Controllers\DashboardController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -17,3 +18,5 @@ Route::get('/test-v1', function () {
         'status' => 'success'
     ]);
 });
+
+Route::get('/log-app', [DashboardController::class, 'getLogApp']);
