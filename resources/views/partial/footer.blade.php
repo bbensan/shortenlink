@@ -13,8 +13,9 @@
                       <h4 class="text-lg font-semibold mb-4">Product</h4>
                       <ul class="space-y-2">
                           <li><a href="{{ route('info-features') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">Features</a></li>
-                          <li><a href="{{ route('info-pages') }}" class="text-gray-400 hover:text-white transition-colors">Pages</a></li>
-                          <li><a href="{{ route('info-template') }}" class="text-gray-400 hover:text-white transition-colors">Templates</a></li>
+                          <li><a href="{{ route('info-pages') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">Pages</a></li>
+                          <li><a href="{{ route('info-tools') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">Tools</a></li>
+                          {{-- <li><a href="{{ route('info-template') }}" class="text-gray-400 hover:text-white transition-colors">Templates</a></li> --}}
                       </ul>
                   </div>
                   
@@ -22,10 +23,10 @@
                   <div>
                       <h4 class="text-lg font-semibold mb-4">Company</h4>
                       <ul class="space-y-2">
-                          <li><a href="{{ route('info-about') }}" class="text-gray-400 hover:text-white transition-colors">About</a></li>
-                          <li><a href="{{ route('info-blog') }}" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-                          <li><a href="{{ route('info-contact') }}" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
-                          <li><a href="{{ route('info-feedback') }}" class="text-gray-400 hover:text-white transition-colors">Feedback</a></li>
+                          <li><a href="{{ route('info-about') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                          <li><a href="{{ route('info-blog') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                          <li><a href="{{ route('info-contact') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                          <li><a href="{{ route('info-feedback') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">Feedback</a></li>
                       </ul>
                   </div>
                   
@@ -33,18 +34,18 @@
                   <div>
                       <h4 class="text-lg font-semibold mb-4">Legal</h4>
                       <ul class="space-y-2">
-                          <li><a href="{{ route('info-privacy') }}" class="text-gray-400 hover:text-white transition-colors">Privacy</a></li>
-                          <li><a href="{{ route('info-terms') }}" class="text-gray-400 hover:text-white transition-colors">Terms</a></li>
-                          <li><a href="{{ route('info-cookie') }}" class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a></li>
+                          <li><a href="{{ route('info-privacy') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">Privacy</a></li>
+                          <li><a href="{{ route('info-terms') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">Terms</a></li>
+                          <li><a href="{{ route('info-cookie') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a></li>
                       </ul>
                   </div>
               </div>
           </div>
           
           <div class="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
-              <p class="text-gray-400 text-sm">© 2025 Lovilink - Free URL Shortener. All rights reserved.</p>
+              <p class="text-gray-400 text-sm">© {{ Carbon\Carbon::now()->year }} Lovilink - Free URL Shortener. All rights reserved.</p>
               <div class="flex space-x-2 mt-4 md:mt-0">
-                  <a href="https://x.com" class="text-gray-400 hover:text-white transition-colors" aria-label="Visit us on X">
+                  <a href="https://x.com/_lovilink" class="text-gray-400 hover:text-white transition-colors" aria-label="Visit us on X">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"  stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <path d="M4 4l11.733 16h4.267l-11.733 -16z" />

@@ -6,6 +6,7 @@ use App\Livewire\Page\About;
 use App\Livewire\Page\Login;
 use App\Livewire\Page\Pages;
 use App\Livewire\Page\Terms;
+use App\Livewire\Page\Tools;
 use App\Livewire\Page\Contact;
 use App\Livewire\Page\Privacy;
 use App\Livewire\Page\Features;
@@ -24,6 +25,7 @@ Route::prefix('info')->group( function() {
   Route::get('/about', About::class)->name('info-about');
   Route::get('/contact', Contact::class)->name('info-contact');
   Route::get('/template', Templates::class)->name('info-template');
+  Route::get('/tools', Tools::class)->name('info-tools');
   Route::get('/feedback', Feedback::class)->name('info-feedback');
   Route::get('/privacy', Privacy::class)->name('info-privacy');
   Route::get('/terms', Terms::class)->name('info-terms');

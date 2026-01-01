@@ -65,7 +65,7 @@
             <div class="bg-white border-l-4 border-yellow-300 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
             <h3 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4">About the Author</h3>
             <p class="text-sm text-gray-700 leading-relaxed">
-                Tev is a self-taught developer, the creator of Lovilink, and co-founder of <span class="gradient-text">LovIdea</span>. He enjoys building helpful tools and exploring the bridge between technology and art.
+                Tev is a self-taught developer, the creator of Lovilink, and co-founder of <a href="https://lovidea.com" class="gradient-text">LovIdea</a>. He enjoys building helpful tools and exploring the bridge between technology and art.
             </p>
             </div>
         </aside>
