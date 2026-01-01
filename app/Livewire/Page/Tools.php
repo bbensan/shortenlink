@@ -7,6 +7,7 @@ use Endroid\QrCode\Builder\Builder;
 use Endroid\QrCode\Encoding\Encoding;
 use Endroid\QrCode\Writer\PngWriter;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 
 class Tools extends Component
 {
@@ -17,6 +18,7 @@ class Tools extends Component
     public $qrText = '';
     public $qrSize = 300;
     public $qrCodeDataUri = null;
+    public $qrError = null;
 
     // Random String Generator properties
     public $stringLength = 16;
@@ -41,7 +43,7 @@ class Tools extends Component
         
         // Reset tool-specific data when switching
         if ($toolName === 'qr-code') {
-            $this->reset(['qrText', 'qrCodeDataUri']);
+            $this->reset(['qrText', 'qrCodeDataUri', 'qrError']);
         } elseif ($toolName === 'string-generator') {
             $this->reset(['generatedString']);
         }
@@ -54,11 +56,26 @@ class Tools extends Component
      */
     public function generateQrCode()
     {
+        // Reset error
+        $this->qrError = null;
+        $this->qrCodeDataUri = null;
+
         $this->validate([
             'qrText' => 'required|string|max:2000',
         ]);
 
         try {
+            // Check if required extensions are available
+            if (!extension_loaded('gd') && !extension_loaded('imagick')) {
+                throw new \Exception('GD or Imagick extension is required for QR code generation.');
+            }
+
+            // Validate size
+            if ($this->qrSize < 100 || $this->qrSize > 1000) {
+                $this->qrSize = 300; // Reset to default if invalid
+            }
+
+            // Create builder with proper error handling
             $builder = new Builder(
                 writer: new PngWriter(),
                 writerOptions: [],
@@ -74,12 +91,31 @@ class Tools extends Component
             // Get QR code as data URI
             $qrCodeImage = $result->getString();
             
-            // Add logo in the center
-            // $qrCodeImage = $this->addLogoToQrCode($qrCodeImage);s
+            if (empty($qrCodeImage)) {
+                throw new \Exception('QR code generation returned empty result.');
+            }
+            
+            // Add logo in the center (commented out for now)
+            // $qrCodeImage = $this->addLogoToQrCode($qrCodeImage);
             
             $this->qrCodeDataUri = 'data:image/png;base64,' . base64_encode($qrCodeImage);
+            
+            // Verify the data URI was created
+            if (empty($this->qrCodeDataUri)) {
+                throw new \Exception('Failed to encode QR code image.');
+            }
+
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            $this->qrError = 'Validation error: ' . implode(', ', $e->errors()['qrText'] ?? ['Invalid input']);
+            Log::error('QR Code Validation Error', ['error' => $e->getMessage(), 'input' => $this->qrText]);
         } catch (\Exception $e) {
-            session()->flash('qr_error', 'Failed to generate QR code: ' . $e->getMessage());
+            $this->qrError = 'Failed to generate QR code. Please try again.';
+            Log::error('QR Code Generation Error', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+                'input_length' => strlen($this->qrText),
+                'size' => $this->qrSize
+            ]);
         }
     }
 
