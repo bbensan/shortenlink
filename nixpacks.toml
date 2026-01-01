@@ -1,5 +1,5 @@
 [phases.setup]
-nixPkgs = ['php82', 'php82Packages.composer']
+nixPkgs = ['php82', 'php82Packages.composer', 'php82Packages.gd', 'php82Packages.pdo', 'php82Packages.pdo_pgsql', 'php82Packages.mbstring', 'php82Packages.curl', 'php82Packages.xml', 'php82Packages.bcmath', 'php82Packages.openssl', 'php82Packages.zip', 'php82Packages.intl']
 
 [phases.install]
 cmds = ['composer install --no-dev --optimize-autoloader']
