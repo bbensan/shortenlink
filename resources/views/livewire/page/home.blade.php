@@ -484,7 +484,7 @@
                         </h3>
                         <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
                             We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies. 
-                            <a href="{{ route('info-cookie') }}" wire:navigate class="text-purple-600 hover:text-purple-700 font-medium underline">Learn more</a>
+                            <a href="{{ route('info-cookie') }}" wire:navigate class="text-purple-600 hover:text-purple-700 font-medium underline">Learn more about our cookie policy</a>
                         </p>
                     </div>
                 </div>
