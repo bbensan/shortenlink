@@ -275,10 +275,10 @@
                                 <!-- Short URL -->
                                 <div>
                                     <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Short URL</p>
-                                    <a href="{{ url('/' . $url->shortened_url) }}" 
+                                    <a href="{{ route('redirect-to-original-url', $url->shortened_url) }}" 
                                        target="_blank"
                                        class="text-sm font-medium text-purple-600 hover:text-purple-700 break-all block">
-                                        {{ url('/' . $url->shortened_url) }}
+                                        {{ route('redirect-to-original-url', $url->shortened_url) }}
                                     </a>
                                 </div>
 
@@ -439,9 +439,15 @@
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold mb-4">Ready to Make Your Links Lovely?</h2>
             <p class="text-xl text-gray-700 mb-8">Join thousands of users who trust Lovilink for their URL shortening needs.</p>
-            <a href="/register" class="inline-block px-8 py-4 rounded-full btn-highlight text-white font-medium text-lg">
-                Get Started - It's Free
-            </a>
+            @auth
+                <a href="{{ route('dashboard-home') }}" wire:navigate.hover class="inline-block px-8 py-4 rounded-full btn-highlight text-white font-medium text-lg">
+                    Go to Dashboard
+                </a>
+            @else
+                <a href="{{ route('info-register') }}" wire:navigate.hover class="inline-block px-8 py-4 rounded-full btn-highlight text-white font-medium text-lg">
+                    Get Started - It's Free
+                </a>
+            @endauth
         </div>
     </section>
 
@@ -484,7 +490,7 @@
                         </h3>
                         <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
                             We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies. 
-                            <a href="{{ route('info-cookie') }}" wire:navigate class="text-purple-600 hover:text-purple-700 font-medium underline">Learn more about our cookie policy</a>
+                            <a href="{{ route('info-cookie') }}" wire:navigate.hover class="text-purple-600 hover:text-purple-700 font-medium underline">Learn more about our cookie policy</a>
                         </p>
                     </div>
                 </div>

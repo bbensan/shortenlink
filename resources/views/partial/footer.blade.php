@@ -12,9 +12,9 @@
                   <div>
                       <h4 class="text-lg font-semibold mb-4">Product</h4>
                       <ul class="space-y-2">
-                          <li><a href="{{ route('info-features') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">Features</a></li>
-                          <li><a href="{{ route('info-pages') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">Pages</a></li>
-                          <li><a href="{{ route('info-tools') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">Tools</a></li>
+                          <li><a href="{{ route('info-features') }}" wire:navigate.hover class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+                          <li><a href="{{ route('info-pages') }}" wire:navigate.hover class="text-gray-400 hover:text-white transition-colors">Pages</a></li>
+                          <li><a href="{{ route('info-tools') }}" wire:navigate.hover class="text-gray-400 hover:text-white transition-colors">Tools</a></li>
                           {{-- <li><a href="{{ route('info-template') }}" class="text-gray-400 hover:text-white transition-colors">Templates</a></li> --}}
                       </ul>
                   </div>
@@ -23,10 +23,10 @@
                   <div>
                       <h4 class="text-lg font-semibold mb-4">Company</h4>
                       <ul class="space-y-2">
-                          <li><a href="{{ route('info-about') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">About</a></li>
-                          <li><a href="{{ route('info-blog') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-                          <li><a href="{{ route('info-contact') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
-                          <li><a href="{{ route('info-feedback') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">Feedback</a></li>
+                          <li><a href="{{ route('info-about') }}" wire:navigate.hover class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                          <li><a href="{{ route('info-blog') }}" wire:navigate.hover class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                          <li><a href="{{ route('info-contact') }}" wire:navigate.hover class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                          <li><a href="{{ route('info-feedback') }}" wire:navigate.hover class="text-gray-400 hover:text-white transition-colors">Feedback</a></li>
                       </ul>
                   </div>
                   
@@ -34,9 +34,9 @@
                   <div>
                       <h4 class="text-lg font-semibold mb-4">Legal</h4>
                       <ul class="space-y-2">
-                          <li><a href="{{ route('info-privacy') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">Privacy</a></li>
-                          <li><a href="{{ route('info-terms') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">Terms</a></li>
-                          <li><a href="{{ route('info-cookie') }}" wire:navigate class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a></li>
+                          <li><a href="{{ route('info-privacy') }}" wire:navigate.hover class="text-gray-400 hover:text-white transition-colors">Privacy</a></li>
+                          <li><a href="{{ route('info-terms') }}" wire:navigate.hover class="text-gray-400 hover:text-white transition-colors">Terms</a></li>
+                          <li><a href="{{ route('info-cookie') }}" wire:navigate.hover class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a></li>
                       </ul>
                   </div>
               </div>

@@ -2,7 +2,7 @@
     <!-- Back Button -->
     <div class="container mx-auto px-6 pt-6">
         <a href="{{ route('home') }}" 
-           wire:navigate
+           wire:navigate.hover
            class="inline-flex items-center gap-2 text-gray-700 hover:text-purple-600 transition-colors group">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -134,9 +134,9 @@
                             >
                             <label for="terms" class="ml-2 block text-sm text-gray-700">
                                 I agree to the 
-                                <a href="{{ route('info-terms') }}" wire:navigate class="text-purple-600 hover:text-purple-700 font-medium">Terms of Service</a>
+                                <a href="{{ route('info-terms') }}" wire:navigate.hover class="text-purple-600 hover:text-purple-700 font-medium">Terms of Service</a>
                                 and 
-                                <a href="{{ route('info-privacy') }}" wire:navigate class="text-purple-600 hover:text-purple-700 font-medium">Privacy Policy</a>
+                                <a href="{{ route('info-privacy') }}" wire:navigate.hover class="text-purple-600 hover:text-purple-700 font-medium">Privacy Policy</a>
                             </label>
                         </div>
                         @error('terms')
@@ -200,7 +200,7 @@
                     <div class="mt-6 text-center">
                         <p class="text-sm text-gray-600">
                             Already have an account? 
-                            <a href="{{ route('info-login') }}" wire:navigate class="text-purple-600 hover:text-purple-700 font-medium">
+                            <a href="{{ route('info-login') }}" wire:navigate.hover class="text-purple-600 hover:text-purple-700 font-medium">
                                 Sign in
                             </a>
                         </p>

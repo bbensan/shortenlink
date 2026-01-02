@@ -13,16 +13,16 @@
     <div class="container mx-auto flex justify-between items-center">
       <!-- Logo -->
       <div class="flex items-center">
-        <a href="{{ route('home') }}" wire:navigate class="text-2xl font-bold gradient-text">Lovilink</a>
+        <a href="{{ route('home') }}" wire:navigate.hover class="text-2xl font-bold gradient-text">Lovilink</a>
       </div>
 
       <!-- Desktop Nav -->
       <div class="hidden md:flex space-x-6">
-        <a href="{{ route('home') }}" wire:navigate class="text-gray-700 {{ Request::routeIs('home') ? 'font-medium' : '' }} hover:text-gray-900">Home</a>
-        <a href="{{ route('info-features') }}" wire:navigate class="text-gray-700 {{ Request::routeIs('info-features') ? 'font-medium' : '' }} hover:text-gray-900">Features</a>
-        <a href="{{ route('info-pages') }}" wire:navigate class="text-gray-700 {{ Request::routeIs('info-pages') ? 'font-medium' : '' }} hover:text-gray-900">Pages</a>
-        <a href="{{ route('info-blog') }}" wire:navigate class="text-gray-700 {{ Request::routeIs('info-blog') ? 'font-medium' : '' }} hover:text-gray-900">Blog</a>
-        <a href="{{ route('info-contact') }}" wire:navigate class="text-gray-700 {{ Request::routeIs('info-contact') ? 'font-medium' : '' }} hover:text-gray-900">Contact</a>
+        <a href="{{ route('home') }}" wire:navigate.hover class="text-gray-700 {{ Request::routeIs('home') ? 'font-medium' : '' }} hover:text-gray-900">Home</a>
+        <a href="{{ route('info-features') }}" wire:navigate.hover class="text-gray-700 {{ Request::routeIs('info-features') ? 'font-medium' : '' }} hover:text-gray-900">Features</a>
+        <a href="{{ route('info-pages') }}" wire:navigate.hover class="text-gray-700 {{ Request::routeIs('info-pages') ? 'font-medium' : '' }} hover:text-gray-900">Pages</a>
+        <a href="{{ route('info-blog') }}" wire:navigate.hover class="text-gray-700 {{ Request::routeIs('info-blog') ? 'font-medium' : '' }} hover:text-gray-900">Blog</a>
+        <a href="{{ route('info-contact') }}" wire:navigate.hover class="text-gray-700 {{ Request::routeIs('info-contact') ? 'font-medium' : '' }} hover:text-gray-900">Contact</a>
       </div>
 
       <!-- Get Started + Hamburger -->
@@ -36,7 +36,11 @@
 
       <!-- Get Started Desktop -->
       <div class="hidden md:block">
-        <a href="{{ route('info-register') }}" class="px-6 py-2 rounded-full btn-highlight text-white font-medium">Get Started</a>
+        @auth
+          <a href="{{ route('dashboard-home') }}" wire:navigate.hover class="px-6 py-2 rounded-full btn-highlight text-white font-medium">Dashboard</a>
+        @else
+          <a href="{{ route('info-register') }}" wire:navigate.hover class="px-6 py-2 rounded-full btn-highlight text-white font-medium">Get Started</a>
+        @endauth
       </div>
     </div>
     
@@ -53,10 +57,14 @@
     class="fixed top-nav-position left-0 w-full nav-blur shadow-md z-40 px-6 py-4 transition-all duration-300 ease-in-out md:hidden"
     :class="mobileMenuOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'"
   >
-    <a href="{{ route('info-features') }}" wire:navigate @click="closeMenu()" class="block text-gray-700 text-center border-b border-gray-200 py-2 hover:text-gray-900">Features</a>
-    <a href="{{ route('info-pages') }}" wire:navigate @click="closeMenu()" class="block text-gray-700 text-center border-b border-gray-200 py-2 hover:text-gray-900">Pages</a>
-    <a href="{{ route('info-blog') }}" wire:navigate @click="closeMenu()" class="block text-gray-700 text-center border-b border-gray-200 py-2 hover:text-gray-900">Blog</a>
-    <a href="{{ route('info-contact') }}" wire:navigate @click="closeMenu()" class="block text-gray-700 text-center py-2 hover:text-gray-900">Contact</a>
-    <a href="{{ route('info-register') }}" @click="closeMenu()" class="block px-6 py-2 rounded-full btn-highlight mt-4 text-white font-medium text-center">Get Started</a>
+    <a href="{{ route('info-features') }}" wire:navigate.hover @click="closeMenu()" class="block text-gray-700 text-center border-b border-gray-200 py-2 hover:text-gray-900">Features</a>
+    <a href="{{ route('info-pages') }}" wire:navigate.hover @click="closeMenu()" class="block text-gray-700 text-center border-b border-gray-200 py-2 hover:text-gray-900">Pages</a>
+    <a href="{{ route('info-blog') }}" wire:navigate.hover @click="closeMenu()" class="block text-gray-700 text-center border-b border-gray-200 py-2 hover:text-gray-900">Blog</a>
+    <a href="{{ route('info-contact') }}" wire:navigate.hover @click="closeMenu()" class="block text-gray-700 text-center py-2 hover:text-gray-900">Contact</a>
+    @auth
+      <a href="{{ route('dashboard-home') }}" @click="closeMenu()" class="block px-6 py-2 rounded-full btn-highlight mt-4 text-white font-medium text-center">Dashboard</a>
+    @else
+      <a href="{{ route('info-register') }}" @click="closeMenu()" class="block px-6 py-2 rounded-full btn-highlight mt-4 text-white font-medium text-center">Get Started</a>
+    @endauth
   </div>
 </div>

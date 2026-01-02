@@ -96,7 +96,7 @@
                 <!-- QR Code Generator Card -->
                 <a 
                     href="{{ route('info-tools') }}?tool=qr-code"
-                    wire:navigate
+                    wire:navigate.hover
                     class="bg-gray-800 rounded-lg p-6 shadow-xl border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-2xl group text-left block">
                     <div class="flex items-start justify-between mb-4">
                         <div class="bg-purple-500/10 p-3 rounded-lg group-hover:bg-purple-500/20 transition-colors">
@@ -125,7 +125,7 @@
                 <!-- Random String Generator Card -->
                 <a 
                     href="{{ route('info-tools') }}?tool=string-generator"
-                    wire:navigate
+                    wire:navigate.hover
                     class="bg-gray-800 rounded-lg p-6 shadow-xl border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-2xl group text-left block">
                     <div class="flex items-start justify-between mb-4">
                         <div class="bg-purple-500/10 p-3 rounded-lg group-hover:bg-purple-500/20 transition-colors">
@@ -183,7 +183,7 @@
 
             <!-- Call to Action -->
             <div class="text-center mt-8">
-                <a href="{{ route('info-tools') }}" wire:navigate class="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors duration-300">
+                <a href="{{ route('info-tools') }}" wire:navigate.hover class="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors duration-300">
                     <span>Explore All Tools</span>
                     <svg class="h-5 w-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
