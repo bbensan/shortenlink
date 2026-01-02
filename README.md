@@ -1,66 +1,228 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# 🔗 Lovilink
 
-## About Laravel
+**A modern, free, and open-source URL shortening platform**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+[![Laravel](https://img.shields.io/badge/Laravel-10.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![Livewire](https://img.shields.io/badge/Livewire-3.6-FB70A9?style=for-the-badge&logo=livewire&logoColor=white)](https://laravel-livewire.com)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
+[![Cursor AI](https://img.shields.io/badge/Cursor-AI-000000?style=for-the-badge&logo=cursor&logoColor=white)](https://cursor.sh)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+*Built with ❤️ by [Tev Immanuel](https://github.com/bbensan) as part of the LovIdea creative brand*
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+</div>
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 📖 About
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+**Lovilink** is a beautiful, modern URL shortening service designed to help creators, communities, and individuals share their digital identity in a better way. Born from the vision of **LovIdea** — a creative brand focused on building small, artistic products — Lovilink serves as the first step toward connecting people and ideas through better links.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### ✨ Why Lovilink?
 
-## Laravel Sponsors
+- **Free & Open Source** — Built for everyone, no hidden costs
+- **Modern UI/UX** — Clean, responsive design with dark mode support
+- **User-Friendly** — Simple interface for creating and managing short links
+- **Privacy-Focused** — Your data, your control
+- **Community-Driven** — Built with feedback and contributions in mind
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+---
 
-### Premium Partners
+## 🚀 Features
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### Core Functionality
+- 🔗 **URL Shortening** — Create short, memorable links instantly
+- 📊 **Analytics Dashboard** — Track your link performance
+- 🎨 **Custom Profiles** — Personalize your link pages
+- 📱 **QR Code Generation** — Generate QR codes for your links
+- 💬 **Feedback System** — Share your thoughts and suggestions
 
-## Contributing
+### Technical Features
+- ⚡ **Real-time Updates** — Powered by Livewire for seamless interactions
+- 🌙 **Dark Mode** — Beautiful dark theme support
+- 📱 **Fully Responsive** — Works perfectly on all devices
+- 🔒 **Secure** — Built with Laravel's security best practices
+- 🎯 **Fast** — Optimized for performance
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 🛠️ Tech Stack
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Backend
+- **Laravel 10.x** — Robust PHP framework
+- **Livewire 3.6** — Full-stack framework for dynamic UIs
+- **PostgreSQL** — Reliable database system
+- **Laravel Sanctum** — API authentication
 
-## Security Vulnerabilities
+### Frontend
+- **Tailwind CSS 3.4** — Utility-first CSS framework
+- **Vite** — Next-generation frontend tooling
+- **Livewire Flux** — Beautiful UI components
+- **Axios** — HTTP client for API requests
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Additional Tools
+- **Endroid QR Code** — QR code generation
+- **Guzzle HTTP** — HTTP client library
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 📁 Project Structure
+
+```
+shortenlink/
+├── app/
+│   ├── Http/Controllers/     # Application controllers
+│   ├── Livewire/             # Livewire components
+│   │   ├── Dashboard/        # Dashboard pages
+│   │   └── Page/             # Public pages
+│   ├── Models/               # Eloquent models
+│   └── Policies/             # Authorization policies
+├── database/
+│   ├── migrations/           # Database migrations
+│   └── seeders/              # Database seeders
+├── resources/
+│   ├── views/                # Blade templates
+│   ├── css/                  # Stylesheets
+│   └── js/                   # JavaScript files
+├── routes/                   # Application routes
+└── public/                   # Public assets
+```
+
+---
+
+## 🎯 Pages & Routes
+
+### Public Pages
+- **Home** — Landing page with URL shortening interface
+- **Features** — Platform features overview
+- **About** — Project story and mission
+- **Blog** — Developer journal and updates
+- **Contact** — Get in touch
+- **Tools** — Available tools and utilities
+- **Templates** — Customizable templates
+- **Feedback** — Submit feedback and suggestions
+- **Privacy, Terms, Cookie Policy** — Legal pages
+
+### Dashboard (Authenticated)
+- **Home** — Main dashboard overview
+- **QR Generator** — Create QR codes for links
+- **Profile** — User profile management
+- **Coming Soon** — Upcoming features
+
+---
+
+## 🗄️ Database Models
+
+- **User** — User accounts and authentication
+- **UrlStorage** — Shortened URLs and analytics
+- **UserData** — Extended user information
+- **Feedback** — User feedback submissions
+- **Image** — Image storage and management
+
+---
+
+## 🎨 Design Philosophy
+
+Lovilink is designed with simplicity and elegance in mind. The interface focuses on:
+
+- **Clean Layouts** — Minimal clutter, maximum clarity
+- **Intuitive Navigation** — Easy to find what you need
+- **Consistent Theming** — Cohesive design language
+- **Accessibility** — Usable by everyone
+- **Performance** — Fast loading and smooth interactions
+
+---
+
+## 🌟 LovIdea Vision
+
+Lovilink is the first digital product in the **LovIdea** ecosystem — a creative brand focused on building small, artistic products ranging from digital tools to physical crafts like stickers, tote bags, and 3D printed collectibles.
+
+This project represents a commitment to:
+- **Openness** — Free and accessible to all
+- **Creativity** — Building beautiful, useful things
+- **Connection** — Bringing people and ideas together
+- **Community** — Growing together through feedback and contributions
+
+---
+
+## 📝 Development
+
+### Requirements
+- PHP 8.2 or higher
+- PostgreSQL database
+- Composer
+- Node.js & npm
+- Required PHP extensions (see `composer.json`)
+
+### Quick Start
+
+1. Clone the repository
+```bash
+git clone https://github.com/bbensan/shortenlink.git
+cd shortenlink
+```
+
+2. Install dependencies
+```bash
+composer install
+npm install
+```
+
+3. Configure environment
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+4. Run migrations
+```bash
+php artisan migrate
+```
+
+5. Start development server
+```bash
+composer run dev
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Whether it's:
+- 🐛 Bug reports
+- 💡 Feature suggestions
+- 📝 Documentation improvements
+- 🎨 UI/UX enhancements
+- 🔧 Code contributions
+
+Every contribution helps make Lovilink better for everyone.
+
+---
+
+## 📄 License
+
+This project is open-sourced software licensed under the [MIT License](LICENSE).
+
+---
+
+## 🙏 Acknowledgments
+
+- Built with [Laravel](https://laravel.com) — The PHP Framework for Web Artisans
+- UI powered by [Livewire](https://laravel-livewire.com) and [Tailwind CSS](https://tailwindcss.com)
+- QR Code generation by [Endroid QR Code](https://github.com/endroid/qr-code)
+- 🤖 **Development assisted by [Cursor AI](https://cursor.sh)** — AI-powered coding companion that helped bring this project to life
+
+---
+
+<div align="center">
+
+**Made with ❤️ by [Tev Immanuel](https://github.com/bbensan)**
+
+*Part of the [LovIdea](https://github.com/bbensan) creative brand*
+
+[⭐ Star this repo](https://github.com/bbensan/shortenlink) if you find it useful!
+
+</div>

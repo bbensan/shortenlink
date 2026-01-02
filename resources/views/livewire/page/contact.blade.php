@@ -162,7 +162,7 @@
                     <div>
                         <h3 class="text-lg font-semibold text-white mb-2">How do I report a privacy concern?</h3>
                         <p class="text-gray-300">
-                            If you have concerns about privacy or data handling, please contact us at <a href="mailto:info@lovilink.com" wire:navigate.hover class="text-purple-400 hover:text-purple-300 underline">info@lovilink.com</a>. You can also review our <a href="{{ route('info-privacy') }}" wire:navigate.hover class="text-purple-400 hover:text-purple-300 underline">Privacy Policy</a> for detailed information about how we handle your data.
+                            If you have concerns about privacy or data handling, please contact us at <a href="mailto:support@lovilink.com" wire:navigate.hover class="text-purple-400 hover:text-purple-300 underline">info@lovilink.com</a>. You can also review our <a href="{{ route('info-privacy') }}" wire:navigate.hover class="text-purple-400 hover:text-purple-300 underline">Privacy Policy</a> for detailed information about how we handle your data.
                         </p>
                     </div>
                 </div>
