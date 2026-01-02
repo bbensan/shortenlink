@@ -28,7 +28,7 @@
                             <div class="ml-4">
                                 <h3 class="text-lg font-semibold text-white mb-1">General Inquiries</h3>
                                 <p class="text-gray-300">For general questions and information</p>
-                                <a href="mailto:info@lovilink.com" class="text-purple-400 hover:text-purple-300 underline mt-1 inline-block">info@lovilink.com</a>
+                                <a href="mailto:info@lovilink.com" wire:navigate.hover class="text-purple-400 hover:text-purple-300 underline mt-1 inline-block">info@lovilink.com</a>
                             </div>
                         </div>
 
@@ -42,7 +42,7 @@
                             <div class="ml-4">
                                 <h3 class="text-lg font-semibold text-white mb-1">Technical Support</h3>
                                 <p class="text-gray-300">Need help with our service?</p>
-                                <a href="mailto:support@lovilink.com" class="text-purple-400 hover:text-purple-300 underline mt-1 inline-block">support@lovilink.com</a>
+                                <a href="mailto:support@lovilink.com" wire:navigate.hover class="text-purple-400 hover:text-purple-300 underline mt-1 inline-block">support@lovilink.com</a>
                             </div>
                         </div>
 
@@ -56,7 +56,7 @@
                             <div class="ml-4">
                                 <h3 class="text-lg font-semibold text-white mb-1">Feedback & Suggestions</h3>
                                 <p class="text-gray-300">Share your thoughts and ideas</p>
-                                <a href="{{ route('info-feedback') }}" class="text-purple-400 hover:text-purple-300 underline mt-1 inline-block">Submit Feedback</a>
+                                <a href="{{ route('info-feedback') }}" wire:navigate.hover class="text-purple-400 hover:text-purple-300 underline mt-1 inline-block">Submit Feedback</a>
                             </div>
                         </div>
 
@@ -75,7 +75,7 @@
                     <h2 class="text-2xl font-semibold mb-6 text-white">Quick Links</h2>
                     
                     <div class="space-y-4">
-                        <a href="{{ route('info-feedback') }}" class="block p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors group">
+                        <a href="{{ route('info-feedback') }}" wire:navigate.hover class="block p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors group">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <h3 class="text-lg font-semibold text-white group-hover:text-purple-300">Submit Feedback</h3>
@@ -87,7 +87,7 @@
                             </div>
                         </a>
 
-                        <a href="{{ route('info-privacy') }}" class="block p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors group">
+                        <a href="{{ route('info-privacy') }}" wire:navigate.hover class="block p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors group">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <h3 class="text-lg font-semibold text-white group-hover:text-purple-300">Privacy Policy</h3>
@@ -99,7 +99,7 @@
                             </div>
                         </a>
 
-                        <a href="{{ route('info-terms') }}" class="block p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors group">
+                        <a href="{{ route('info-terms') }}" wire:navigate.hover class="block p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors group">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <h3 class="text-lg font-semibold text-white group-hover:text-purple-300">Terms of Service</h3>
@@ -111,7 +111,7 @@
                             </div>
                         </a>
 
-                        <a href="{{ route('info-cookie') }}" class="block p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors group">
+                        <a href="{{ route('info-cookie') }}" wire:navigate.hover class="block p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors group">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <h3 class="text-lg font-semibold text-white group-hover:text-purple-300">Cookie Policy</h3>
@@ -134,7 +134,7 @@
                     <div>
                         <h3 class="text-lg font-semibold text-white mb-2">How do I report a broken or malicious link?</h3>
                         <p class="text-gray-300">
-                            If you encounter a broken or malicious link created through our service, please contact us immediately at <a href="mailto:support@lovilink.com" class="text-purple-400 hover:text-purple-300 underline">support@lovilink.com</a> with the shortened URL and details about the issue. We take security seriously and will investigate promptly.
+                            If you encounter a broken or malicious link created through our service, please contact us immediately at <a href="mailto:support@lovilink.com" wire:navigate.hover class="text-purple-400 hover:text-purple-300 underline">support@lovilink.com</a> with the shortened URL and details about the issue. We take security seriously and will investigate promptly.
                         </p>
                     </div>
 
@@ -148,7 +148,7 @@
                     <div>
                         <h3 class="text-lg font-semibold text-white mb-2">How can I request a feature?</h3>
                         <p class="text-gray-300">
-                            We love hearing your ideas! Please use our <a href="{{ route('info-feedback') }}" class="text-purple-400 hover:text-purple-300 underline">Feedback Page</a> to submit feature requests. Your suggestions help us improve Lovilink.
+                            We love hearing your ideas! Please use our <a href="{{ route('info-feedback') }}" wire:navigate.hover class="text-purple-400 hover:text-purple-300 underline">Feedback Page</a> to submit feature requests. Your suggestions help us improve Lovilink.
                         </p>
                     </div>
 
@@ -162,7 +162,7 @@
                     <div>
                         <h3 class="text-lg font-semibold text-white mb-2">How do I report a privacy concern?</h3>
                         <p class="text-gray-300">
-                            If you have concerns about privacy or data handling, please contact us at <a href="mailto:info@lovilink.com" class="text-purple-400 hover:text-purple-300 underline">info@lovilink.com</a>. You can also review our <a href="{{ route('info-privacy') }}" class="text-purple-400 hover:text-purple-300 underline">Privacy Policy</a> for detailed information about how we handle your data.
+                            If you have concerns about privacy or data handling, please contact us at <a href="mailto:info@lovilink.com" wire:navigate.hover class="text-purple-400 hover:text-purple-300 underline">info@lovilink.com</a>. You can also review our <a href="{{ route('info-privacy') }}" wire:navigate.hover class="text-purple-400 hover:text-purple-300 underline">Privacy Policy</a> for detailed information about how we handle your data.
                         </p>
                     </div>
                 </div>
