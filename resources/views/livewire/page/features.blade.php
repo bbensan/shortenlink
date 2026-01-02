@@ -79,6 +79,120 @@
         </div>
     </section>
 
+    <!-- Free Tools Section -->
+    <section class="py-16 bg-gray-900">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 text-white">
+                    Free Tools & Utilities
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Discover our collection of free, powerful tools designed to simplify your digital workflow and enhance your productivity.
+                </p>
+            </div>
+
+            <!-- Tools Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                <!-- QR Code Generator Card -->
+                <a 
+                    href="{{ route('info-tools') }}?tool=qr-code"
+                    wire:navigate
+                    class="bg-gray-800 rounded-lg p-6 shadow-xl border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-2xl group text-left block">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="bg-purple-500/10 p-3 rounded-lg group-hover:bg-purple-500/20 transition-colors">
+                            <svg class="h-8 w-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"></path>
+                            </svg>
+                        </div>
+                        <span class="px-3 py-1 text-xs font-semibold text-green-400 bg-green-400/10 rounded-full border border-green-400/20">
+                            Available
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors">
+                        QR Code Generator
+                    </h3>
+                    <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                        Generate custom QR codes instantly for any URL, text, or data. Perfect for marketing materials, business cards, and sharing links offline.
+                    </p>
+                    <div class="flex items-center text-purple-400 text-sm font-medium group-hover:text-purple-300 transition-colors">
+                        <span>Use Tool</span>
+                        <svg class="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Random String Generator Card -->
+                <a 
+                    href="{{ route('info-tools') }}?tool=string-generator"
+                    wire:navigate
+                    class="bg-gray-800 rounded-lg p-6 shadow-xl border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-2xl group text-left block">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="bg-purple-500/10 p-3 rounded-lg group-hover:bg-purple-500/20 transition-colors">
+                            <svg class="h-8 w-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"></path>
+                            </svg>
+                        </div>
+                        <span class="px-3 py-1 text-xs font-semibold text-green-400 bg-green-400/10 rounded-full border border-green-400/20">
+                            Available
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors">
+                        Random String Generator
+                    </h3>
+                    <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                        Generate secure random strings, passwords, and tokens with customizable length and character sets. Ideal for API keys, passwords, and unique identifiers.
+                    </p>
+                    <div class="flex items-center text-purple-400 text-sm font-medium group-hover:text-purple-300 transition-colors">
+                        <span>Use Tool</span>
+                        <svg class="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Coming Soon -->
+                <div class="bg-gray-800 rounded-lg p-6 shadow-xl border border-gray-700 opacity-75 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/10 to-transparent rounded-full -mr-16 -mt-16"></div>
+                    <div class="relative">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="bg-gray-700/50 p-3 rounded-lg">
+                                <svg class="h-8 w-8 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <span class="px-3 py-1 text-xs font-semibold text-yellow-400 bg-yellow-400/10 rounded-full border border-yellow-400/20">
+                                Coming Soon
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">
+                            More Tools
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                            We're constantly working on new tools to help you work smarter. Stay tuned for exciting additions to our toolkit.
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm font-medium">
+                            <span>Coming Soon</span>
+                            <svg class="h-4 w-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center mt-8">
+                <a href="{{ route('info-tools') }}" wire:navigate class="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors duration-300">
+                    <span>Explore All Tools</span>
+                    <svg class="h-5 w-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Link Management Section -->
     <section class="py-16 bg-gray-50">
         <div class="container mx-auto px-6">

@@ -29,6 +29,17 @@ class Tools extends Component
     public $generatedString = '';
 
     /**
+     * Mount the component and check for tool query parameter
+     */
+    public function mount()
+    {
+        $tool = request()->query('tool');
+        if ($tool && in_array($tool, ['qr-code', 'string-generator'])) {
+            $this->activeTool = $tool;
+        }
+    }
+
+    /**
      * Open a tool section
      */
     public function openTool($toolName)

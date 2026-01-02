@@ -15,6 +15,7 @@ use App\Livewire\Page\Register;
 use App\Livewire\Page\Templates;
 use App\Livewire\Page\CookiePolicy;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UrlStorageController;
 
 Route::get('/', Home::class)->name('home');
@@ -32,80 +33,16 @@ Route::prefix('info')->group( function() {
   Route::get('/cookie', CookiePolicy::class)->name('info-cookie');
 });
 
-Route::get('/sitemap.xml', function() {
-    $sitemap = '<?xml version="1.0" encoding="UTF-8"?>
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>' . url('/') . '</loc>
-        <lastmod>' . date('Y-m-d') . '</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-    </url>
-    <url>
-        <loc>' . route('info-features') . '</loc>
-        <lastmod>' . date('Y-m-d') . '</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>' . route('info-pages') . '</loc>
-        <lastmod>' . date('Y-m-d') . '</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>' . route('info-blog') . '</loc>
-        <lastmod>' . date('Y-m-d') . '</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>' . route('info-about') . '</loc>
-        <lastmod>' . date('Y-m-d') . '</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>' . route('info-contact') . '</loc>
-        <lastmod>' . date('Y-m-d') . '</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>' . route('info-tools') . '</loc>
-        <lastmod>' . date('Y-m-d') . '</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>' . route('info-privacy') . '</loc>
-        <lastmod>' . date('Y-m-d') . '</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>' . route('info-terms') . '</loc>
-        <lastmod>' . date('Y-m-d') . '</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>' . route('info-cookie') . '</loc>
-        <lastmod>' . date('Y-m-d') . '</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
-    </url>
-  </urlset>';
-    
-    return response($sitemap, 200)
-        ->header('Content-Type', 'application/xml');
-});
+Route::get('/sitemap.xml', [HomeController::class, 'sitemap'])->name('sitemap.xml');
 
 Route::post('/url-shorten-func', [UrlStorageController::class, 'shortenUrl'])->name('shorten-url');
 Route::get('/{shortenedUrl}', [UrlStorageController::class, 'redirectToOriginalUrl'])->name('redirect-to-original-url');
 
 Route::prefix('auth')->group( function() {
-  Route::get('/login', Login::class)->name('info-login');
-  Route::get('/register', Register::class)->name('info-register');
+    Route::get('/login', Login::class)->name('info-login');
+    Route::get('/register', Register::class)->name('info-register');
 });
 
+Route::fallback(function() {
+    return response()->view('errors.404', [], 204);
+});

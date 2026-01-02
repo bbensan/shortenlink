@@ -33,7 +33,7 @@
                                 type="text" 
                                 id="name"
                                 wire:model="name"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                                class="w-full px-4 py-3 border outline-none border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
                                 placeholder="John Doe"
                                 required
                             >
@@ -51,7 +51,7 @@
                                 type="email" 
                                 id="email"
                                 wire:model="email"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                                class="w-full px-4 py-3 border outline-none border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
                                 placeholder="you@example.com"
                                 required
                             >
@@ -70,7 +70,7 @@
                                     :type="showPassword ? 'text' : 'password'"
                                     id="password"
                                     wire:model="password"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all pr-12"
+                                    class="w-full px-4 py-3 border border-gray-300 outline-none rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all pr-12"
                                     placeholder="Create a strong password"
                                     required
                                 >
@@ -103,7 +103,7 @@
                                     :type="showConfirmPassword ? 'text' : 'password'"
                                     id="password_confirmation"
                                     wire:model="password_confirmation"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all pr-12"
+                                    class="w-full px-4 py-3 border border-gray-300 outline-none rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all pr-12"
                                     placeholder="Confirm your password"
                                     required
                                 >

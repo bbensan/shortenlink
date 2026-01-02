@@ -389,6 +389,21 @@ wire:ignore.self>
 
     @script
     <script>
+        // Handle scroll to tool when page loads with query parameter
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const toolParam = urlParams.get('tool');
+            if (toolParam && ['qr-code', 'string-generator'].includes(toolParam)) {
+                setTimeout(() => {
+                    const toolId = 'tool-' + toolParam;
+                    const element = document.getElementById(toolId);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 500);
+            }
+        });
+
         $wire.on('scroll-to-tool', (event) => {
             const toolId = 'tool-' + event.tool;
             const element = document.getElementById(toolId);

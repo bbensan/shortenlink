@@ -16,7 +16,7 @@
         <div class="container mx-auto px-6">
             <div class="max-w-md mx-auto">
                 <!-- Logo & Title -->
-                <div class="text-center mb-8">\
+                <div class="text-center mb-8">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Welcome Back</h2>
                     <p class="text-gray-600">Sign in to manage your links and access analytics</p>
                 </div>
@@ -33,7 +33,7 @@
                                 type="email" 
                                 id="email"
                                 wire:model="email"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
                                 placeholder="you@example.com"
                                 required
                             >
@@ -57,7 +57,7 @@
                                     :type="showPassword ? 'text' : 'password'"
                                     id="password"
                                     wire:model="password"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all pr-12"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all pr-12"
                                     placeholder="Enter your password"
                                     required
                                 >
