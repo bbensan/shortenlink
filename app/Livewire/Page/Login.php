@@ -22,7 +22,7 @@ class Login extends Component
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
             session()->regenerate();
             
-            return redirect()->intended(route('home'));
+            return redirect()->intended(route('dashboard-home'));
         }
 
         throw ValidationException::withMessages([

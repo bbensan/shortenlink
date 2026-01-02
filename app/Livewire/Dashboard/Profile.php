@@ -17,11 +17,17 @@ class Profile extends Component
     public $email = '';
     public $emailVerified = false;
     
+    // Change Email
+    public $showEmailForm = false;
+    public $newEmail = '';
+    public $emailPassword = '';
+    
     // Change Password
     public $currentPassword = '';
     public $newPassword = '';
-    public $newPasswordConfirmation = '';
+    public $newPassword_confirmation = '';
     public $showPasswordForm = false;
+    public $currentPasswordValid = null; // null = not checked, true = valid, false = invalid
     
     // Delete Account
     public $showDeleteModal = false;
@@ -80,6 +86,72 @@ class Profile extends Component
     }
 
     /**
+     * Toggle email form
+     */
+    public function toggleEmailForm()
+    {
+        $this->showEmailForm = !$this->showEmailForm;
+        if (!$this->showEmailForm) {
+            $this->newEmail = '';
+            $this->emailPassword = '';
+            $this->resetErrorBag('newEmail');
+            $this->resetErrorBag('emailPassword');
+        }
+    }
+
+    /**
+     * Update email
+     */
+    public function updateEmail()
+    {
+        $this->validate([
+            'newEmail' => 'required|email|max:255|unique:users,email,' . Auth::id(),
+            'emailPassword' => 'required',
+        ]);
+
+        $user = Auth::user();
+
+        if (!Hash::check($this->emailPassword, $user->password)) {
+            $this->addError('emailPassword', 'The password is incorrect.');
+            return;
+        }
+
+        $user->update([
+            'email' => $this->newEmail,
+            'email_verified_at' => null, // Reset verification when email changes
+        ]);
+
+        $this->email = $this->newEmail;
+        $this->emailVerified = false;
+        $this->showEmailForm = false;
+        $this->newEmail = '';
+        $this->emailPassword = '';
+
+        session()->flash('success', 'Email updated successfully. Please verify your new email address.');
+    }
+
+    /**
+     * Validate current password with debounce
+     */
+    public function validateCurrentPassword()
+    {
+        if (empty($this->currentPassword)) {
+            $this->currentPasswordValid = null;
+            $this->resetErrorBag('currentPassword');
+            return;
+        }
+
+        $user = Auth::user();
+        $this->currentPasswordValid = Hash::check($this->currentPassword, $user->password);
+        
+        if (!$this->currentPasswordValid) {
+            $this->addError('currentPassword', 'The current password is incorrect.');
+        } else {
+            $this->resetErrorBag('currentPassword');
+        }
+    }
+
+    /**
      * Toggle password form
      */
     public function togglePasswordForm()
@@ -95,7 +167,8 @@ class Profile extends Component
     {
         $this->currentPassword = '';
         $this->newPassword = '';
-        $this->newPasswordConfirmation = '';
+        $this->newPassword_confirmation = '';
+        $this->currentPasswordValid = null;
         $this->resetErrorBag();
     }
 
@@ -113,6 +186,7 @@ class Profile extends Component
 
         if (!Hash::check($this->currentPassword, $user->password)) {
             $this->addError('currentPassword', 'The current password is incorrect.');
+            $this->currentPasswordValid = false;
             return;
         }
 
@@ -123,6 +197,7 @@ class Profile extends Component
         session()->flash('success', 'Password updated successfully.');
         $this->resetPasswordFields();
         $this->showPasswordForm = false;
+        $this->currentPasswordValid = null;
     }
 
     /**

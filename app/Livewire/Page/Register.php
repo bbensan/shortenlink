@@ -35,7 +35,7 @@ class Register extends Component
 
         session()->regenerate();
 
-        return redirect()->intended(route('home'));
+        return redirect()->intended(route('dashboard-home'));
     }
 
     public function render()
