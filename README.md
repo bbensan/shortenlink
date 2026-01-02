@@ -11,7 +11,7 @@
 [![Cursor AI](https://img.shields.io/badge/Cursor-AI-000000?style=for-the-badge&logo=cursor&logoColor=white)](https://cursor.sh)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
-*Built with ❤️ by [Tev Immanuel](https://github.com/bbensan) as part of the LovIdea creative brand*
+*Built with ❤️ by [Tev Immanuel](https://github.com/daunkering21) as part of the LovIdea creative brand*
 
 </div>
 
@@ -219,10 +219,10 @@ This project is open-sourced software licensed under the [MIT License](LICENSE).
 
 <div align="center">
 
-**Made with ❤️ by [Tev Immanuel](https://github.com/bbensan)**
+**Made with ❤️ by [Tev Immanuel](https://github.com/daunkering21)**
 
-*Part of the [LovIdea](https://github.com/bbensan) creative brand*
+*Part of the [LovIdea](https://github.com/daunkering21) creative brand*
 
-[⭐ Star this repo](https://github.com/bbensan/shortenlink) if you find it useful!
+[⭐ Star this repo](https://github.com/daunkering21/shortenlink) if you find it useful!
 
 </div>
