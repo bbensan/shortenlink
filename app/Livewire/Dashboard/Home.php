@@ -26,6 +26,11 @@ class Home extends Component
     // Delete confirmation
     public $deletingUrlId = null;
     public $deletingUrlOriginal = '';
+    
+    // Shorten URL form
+    public $originalUrl = '';
+    public $shortenedUrl = '';
+    public $isLoading = false;
 
     public function mount()
     {
@@ -188,6 +193,48 @@ class Home extends Component
         session()->flash('success', 'URL deleted successfully.');
         $this->closeDeleteModal();
         $this->dispatch('close-delete-modal');
+    }
+
+    /**
+     * Shorten URL
+     */
+    public function shortenUrl()
+    {
+        $this->reset(['shortenedUrl']);
+        $this->isLoading = true;
+
+        try {
+            $this->validate([
+                'originalUrl' => 'required|url',
+            ]);
+
+            // Generate unique shortened URL
+            do {
+                $shortened = Str::random(6);
+                $exists = UrlStorage::where('shortened_url', $shortened)->exists();
+            } while ($exists);
+
+            $urlStorage = UrlStorage::create([
+                'original_url' => $this->originalUrl,
+                'shortened_url' => $shortened,
+                'user_id' => auth()->id(),
+                'is_temporary' => false,
+            ]);
+
+            $this->shortenedUrl = $shortened;
+            $this->originalUrl = '';
+            
+            session()->flash('success', 'URL shortened successfully!');
+            
+            // Reset pagination to show new URL
+            $this->resetPage();
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // Validation errors will be shown automatically
+        } catch (\Exception $e) {
+            session()->flash('error', 'An error occurred: ' . $e->getMessage());
+        } finally {
+            $this->isLoading = false;
+        }
     }
 
     public function render()
