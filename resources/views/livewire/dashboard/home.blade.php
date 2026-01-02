@@ -210,10 +210,10 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4">
-                                <a href="{{ url('/' . $url->shortened_url) }}" 
+                                <a href="{{ preg_replace('/^http:/i', 'https:', url('/' . $url->shortened_url)) }}" 
                                    target="_blank"
                                    class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300">
-                                    {{ url('/' . $url->shortened_url) }}
+                                    {{ preg_replace('/^http:/i', 'https:', url('/' . $url->shortened_url)) }}
                                 </a>
                             </td>
                             <td class="px-6 py-4">
