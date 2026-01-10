@@ -123,14 +123,14 @@
                         @if(!$emailVerified)
                             <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
                                 Your email address is not verified. 
-                                <button type="button" wire:click="resendVerificationEmail" class="text-purple-600 dark:text-purple-400 hover:underline font-medium">
-                                    Resend verification email
+                                <button type="button" wire:click="sendWelcomeEmail" class="text-purple-600 dark:text-purple-400 hover:underline font-medium">
+                                    Send verification email
                                 </button>
                             </p>
                         @endif
                     @else
                         <form wire:submit.prevent="updateEmail" class="space-y-4">
-                            <div>
+                            <div class="mt-4">
                                 <label for="newEmail" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                     New Email Address
                                 </label>
@@ -146,7 +146,7 @@
                                     <p class="mt-2 text-sm text-red-600 dark:text-red-400">{{ $message }}</p> 
                                 @enderror
                             </div>
-                            <div>
+                            <div class="mt-4">
                                 <label for="emailPassword" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                     Confirm Password
                                 </label>
@@ -178,7 +178,7 @@
                                     <p class="mt-2 text-sm text-red-600 dark:text-red-400">{{ $message }}</p> 
                                 @enderror
                             </div>
-                            <div class="flex justify-end gap-3">
+                            <div class="flex justify-end gap-3 mt-4">
                                 <button 
                                     type="button"
                                     wire:click="toggleEmailForm"

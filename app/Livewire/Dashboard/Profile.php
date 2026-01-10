@@ -5,8 +5,12 @@ namespace App\Livewire\Dashboard;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Auth\Events\Registered;
+use App\Mail\WelcomeMail;
 
 class Profile extends Component
 {
@@ -83,6 +87,40 @@ class Profile extends Component
         event(new Registered($user));
         
         session()->flash('success', 'Verification email sent! Please check your inbox.');
+    }
+
+    /**
+     * Send welcome email with verification token
+     */
+    public function sendWelcomeEmail()
+    {
+        $user = Auth::user();
+        
+        if ($user->email_verified_at !== null) {
+            session()->flash('info', 'Your email is already verified.');
+            return;
+        }
+
+        try {
+            // Generate token
+            $token = Str::random(64);
+            
+            // Store token in database (replace existing token if any)
+            DB::table('email_verification_tokens')->updateOrInsert(
+                ['email' => $user->email],
+                [
+                    'token' => Hash::make($token),
+                    'created_at' => now(),
+                ]
+            );
+
+            // Send email
+            Mail::to($user->email)->send(new WelcomeMail($user, $token));
+            
+            session()->flash('success', 'Verification email sent! Please check your inbox.');
+        } catch (\Exception $e) {
+            session()->flash('error', 'Failed to send verification email. Please try again.');
+        }
     }
 
     /**

@@ -1,11 +1,14 @@
 <?php
 
-use App\Livewire\Dashboard;
 use App\Livewire\Page;
+use App\Mail\WelcomeMail;
+use App\Livewire\Dashboard;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UrlStorageController;
+use App\Http\Controllers\MailController;
 use App\Http\Middleware\CustomAuthMiddleware;
+use App\Http\Controllers\UrlStorageController;
 use App\Http\Middleware\CustomGuestMiddleware;
 
 Route::get('/', Page\Home::class)->name('home');
@@ -37,6 +40,12 @@ Route::middleware(CustomAuthMiddleware::class)->group(function () {
         return redirect()->route('home');
     })->name('logout');
 });
+
+Route::middleware(CustomAuthMiddleware::class)->group(function () {
+    Route::get('/send-welcome-email', [MailController::class, 'sendWelcomeEmail'])->name('send-welcome-email');
+});
+
+Route::get('/verify-email/{token}', [MailController::class, 'verifyEmail'])->name('verify-email');
 
 Route::get('/sitemap.xml', [HomeController::class, 'sitemap'])->name('sitemap.xml');
 
