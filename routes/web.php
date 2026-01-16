@@ -60,6 +60,13 @@ Route::middleware(CustomGuestMiddleware::class)->group(function () {
     });
 });
 
+Route::get('/health', function () {
+    return response()->json([
+        'status' => 'OK',
+        'timestamp' => now(),
+    ]);
+});
+
 Route::fallback(function() {
     return response()->view('errors.404', [], 204);
 });
