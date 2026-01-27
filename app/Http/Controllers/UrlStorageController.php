@@ -18,6 +18,6 @@ class UrlStorageController extends Controller
             return redirect($url->original_url);
         }
 
-        return redirect()->route('home');
+        abort(404);
     }
 }
