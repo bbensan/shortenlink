@@ -21,6 +21,8 @@
   <meta property="fb:app_id" content="1246995273070330" />
 
   <meta name="google-site-verification" content="fWnter7hioZcQFqIw4Z3aCd2fCcUHmAYLNnU3uEQMm4" />
+
+  <link rel="canonical" href="{{ Str::replace(['http://localhost:7021', 'https://www.lovilink.com'], 'https://lovilink.com', url()->full()) }}">
   
   @vite(['resources/css/app.css', 'resources/js/app.js'])
   @livewireStyles

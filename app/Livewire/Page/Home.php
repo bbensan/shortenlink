@@ -79,11 +79,26 @@ class Home extends Component
                 $isTemporary = true;
             }
 
+            // Get creator IP address
+            $creatorIp = request()->ip();
+
+            // Check if this user and IP already shortened the same original URL
+            $existingUrl = UrlStorage::findExistingUrl($userId, $creatorIp, $this->url, $isTemporary);
+
+            if ($existingUrl) {
+                // URL already exists for this user and IP, return the existing shortened URL
+                $this->shortenedUrl = $existingUrl->shortened_url;
+                $this->url = ''; // Clear input after success
+                return;
+            }
+
+            // Create new shortened URL
             $urlStorage = UrlStorage::create([
                 'original_url' => $this->url,
                 'shortened_url' => Str::random(6),
                 'user_id' => $userId,
                 'is_temporary' => $isTemporary,
+                'creator_ip' => $creatorIp,
             ]);
 
             $this->shortenedUrl = $urlStorage->shortened_url;

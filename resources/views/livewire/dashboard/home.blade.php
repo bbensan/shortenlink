@@ -210,10 +210,10 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4">
-                                <a href="{{ preg_replace('/^http:/i', 'https:', url('/' . $url->shortened_url)) }}" 
+                                <a href="{{ secure_url($url->shortened_url) }}" 
                                    target="_blank"
                                    class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300">
-                                    {{ preg_replace('/^http:/i', 'https:', url('/' . $url->shortened_url)) }}
+                                    {{ secure_url($url->shortened_url) }}
                                 </a>
                             </td>
                             <td class="px-6 py-4">
@@ -230,7 +230,7 @@
                                 <div class="flex items-center justify-center gap-2">
                                     <button 
                                         @click="
-                                            navigator.clipboard.writeText('{{ url('/' . $url->shortened_url) }}');
+                                            navigator.clipboard.writeText(window.location.origin + '/{{ $url->shortened_url }}');
                                             copied{{ $loop->index }} = true;
                                             setTimeout(() => copied{{ $loop->index }} = false, 2000);
                                         "

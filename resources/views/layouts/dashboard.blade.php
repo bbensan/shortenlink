@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="{{ asset('assets/css/lovilink.css') }}">
   <link rel="icon" type="image/x-icon" href="{{ asset('assets/logo/lovilink.ico') }}">
   <script>
-    // Apply theme immediately to prevent flash
     (function() {
       const theme = localStorage.getItem('theme') || 'system';
       let isDark = false;
@@ -37,17 +36,13 @@
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
   <div class="flex h-screen overflow-hidden">
-    <!-- Sidebar - Desktop -->
     @include('partials.dashboard.sidebar')
     
-    <!-- Main Content Area -->
     <div class="flex flex-col flex-1 overflow-hidden">
-      <!-- Navbar - Optional, can be included if needed -->
       @if(isset($showNavbar) && $showNavbar)
         @include('partials.dashboard.navbar', ['breadcrumbs' => $breadcrumbs ?? null])
       @endif
       
-      <!-- Main Content -->
       <main class="flex-1 overflow-y-auto pb-20 md:pb-6">
         <div class="container mx-auto px-4 md:px-6 py-6">
           {{ $slot }}
@@ -56,7 +51,6 @@
     </div>
   </div>
 
-  <!-- Mobile Bottom Navigation -->
   @include('partials.dashboard.mobile-nav')
   
   @livewireScripts
