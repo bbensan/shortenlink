@@ -22,7 +22,7 @@
 
   <meta name="google-site-verification" content="fWnter7hioZcQFqIw4Z3aCd2fCcUHmAYLNnU3uEQMm4" />
 
-  <link rel="canonical" href="{{ 'https://lovilink.com/' . url()->full()) }}">
+  <link rel="canonical" href="{{ 'https://lovilink.com/' . url()->full() }}">
   
   @vite(['resources/css/app.css', 'resources/js/app.js'])
   @livewireStyles
