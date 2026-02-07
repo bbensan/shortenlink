@@ -19,5 +19,6 @@ Route::get('/test-v1', function () {
     ]);
 });
 
+
 Route::get('/log-app', [DashboardController::class, 'getLogApp']);
 Route::delete('/log-app', [DashboardController::class, 'eraseLogApp']);
