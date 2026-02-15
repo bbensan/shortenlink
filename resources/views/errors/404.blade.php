@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>404 Not Found - Lovilink</title>
+  <meta name="description" content="The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. Please check the URL and try again." />
+  <link rel="canonical" href="{{ url('https://lovilink.com/' . request()->path()) }}">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-white flex flex-col justify-center items-center min-h-screen px-6 text-center">
