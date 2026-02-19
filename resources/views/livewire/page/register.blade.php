@@ -161,17 +161,17 @@
                     </form>
 
                     <!-- Divider -->
-                    <div class="relative my-6">
+                    {{-- <div class="relative my-6">
                         <div class="absolute inset-0 flex items-center">
                             <div class="w-full border-t border-gray-300"></div>
                         </div>
                         <div class="relative flex justify-center text-sm">
                             <span class="px-2 bg-white text-gray-500">Or continue with</span>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <!-- Social Login Buttons -->
-                    <div class="space-y-3">
+                    {{-- <div class="space-y-3">
                         <button 
                             type="button"
                             class="w-full flex items-center justify-center gap-3 px-6 py-3 border-2 border-gray-300 rounded-lg font-medium text-gray-700 hover:bg-gray-50 transition-colors"
@@ -194,7 +194,7 @@
                             </svg>
                             Continue with GitHub
                         </button>
-                    </div>
+                    </div> --}}
 
                     <!-- Sign In Link -->
                     <div class="mt-6 text-center">
