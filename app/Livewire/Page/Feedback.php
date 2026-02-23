@@ -58,6 +58,12 @@ class Feedback extends Component
 
     public function render()
     {
-        return view('livewire.page.feedback')->layout('layouts.home');
+        return view('livewire.page.feedback')->layout('layouts.home')->layoutData(
+            [
+                'title' => 'Lovilink - Feedback',
+                'seoDescription' => 'Feedback your suggestions, questions, or need support? We\'d love to hear from you. Reach out to us through any of the channels below.',
+                'keywords' => 'lovilink, feedback, suggestions, questions, support',
+            ]
+        );
     }
 }

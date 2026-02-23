@@ -2,9 +2,9 @@
     <!-- Link Shortening Section -->
     <section class="mt-16 pt-16 pb-16 bg-gray-900">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-white">
+            <h1 class="text-3xl font-bold text-center mb-12 text-white">
                 Link Shortening & Sharing
-            </h2>
+            </h1>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Feature 1 - URL Shortener with GIF placeholder -->
                 <div class="card card-primary bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700">

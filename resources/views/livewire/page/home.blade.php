@@ -5,8 +5,8 @@
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0">
                     <h1 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
-                        Make Your Links 
-                        <span class="gradient-text">Lovely</span> 
+                        Make Your Links
+                        <span class="gradient-text"> Lovely </span>
                         and Short
                     </h1>
                     <p class="mt-4 text-xl text-gray-600">

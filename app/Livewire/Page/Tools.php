@@ -237,6 +237,12 @@ class Tools extends Component
 
     public function render()
     {
-        return view('livewire.page.tools')->layout('layouts.home');
+        return view('livewire.page.tools')->layout('layouts.home')->layoutData(
+            [
+                'title' => 'Lovilink - Tools',
+                'seoDescription' => 'Lovilink tools are a collection of tools that help you create and manage your URLs and analytics.',
+                'keywords' => 'lovilink, tools, urls, analytics',
+            ]
+        );
     }
 }

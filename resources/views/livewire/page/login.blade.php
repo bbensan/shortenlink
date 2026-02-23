@@ -17,7 +17,7 @@
             <div class="max-w-md mx-auto">
                 <!-- Logo & Title -->
                 <div class="text-center mb-8">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Welcome Back</h2>
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Welcome Back</h1>
                     <p class="text-gray-600">Sign in to manage your links and access analytics</p>
                 </div>
 
@@ -48,9 +48,9 @@
                                 <label for="password" class="block text-sm font-medium text-gray-700">
                                     Password
                                 </label>
-                                <a href="#" class="text-sm text-purple-600 hover:text-purple-700 font-medium">
+                                {{-- <a href="#" class="text-sm text-purple-600 hover:text-purple-700 font-medium">
                                     Forgot password?
-                                </a>
+                                </a> --}}
                             </div>
                             <div class="relative">
                                 <input 

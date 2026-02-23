@@ -129,6 +129,10 @@ class Home extends Component
         return view('livewire.page.home', [
             'recentUrls' => $recentUrls,
             'hasMoreUrls' => $hasMoreUrls,
-        ])->layout('layouts.home');
+        ])->layout('layouts.home')->layoutData([
+            'title' => 'Lovilink - Free URL Shortener',
+            'seoDescription' => 'Shorten your long URLs with Lovilink. Free, fast, and easy to use. Create custom links and track clicks with detailed analytics.',
+            'keywords' => 'lovilink, shorten link, bio link, open source marketing, free url shortener, link analytics, url shortener',
+        ]);
     }
 }

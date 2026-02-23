@@ -49,9 +49,9 @@
     <!-- Hero Section -->
     <section class="mt-16 pt-16 pb-16 gradient-background">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">
+            <h1 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">
                 Personal Bio Page Templates
-            </h2>
+            </h1>
             <p class="text-xl text-center text-gray-600 mb-8">
                 Choose from our beautiful, interactive templates to create your perfect bio page
             </p>

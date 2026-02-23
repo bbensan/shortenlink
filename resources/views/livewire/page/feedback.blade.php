@@ -13,8 +13,8 @@
     <!-- Feedback Intro Section -->
     <section class="mt-16 pt-16 pb-16 bg-gray-800">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-200">
-                We Value Your Feedback
+            <h1 class="text-3xl font-bold text-center mb-12 text-gray-200">
+                We Value Your <span class="gradient-text">Feedback</span>
             </h2>
             <p class="text-center text-gray-300 max-w-2xl mx-auto">
                 Your thoughts, ideas, and suggestions help shape the future of Lovilink. Whether it's a bug, a feature request, or just a kind word — we want to hear it.

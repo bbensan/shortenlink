@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <title>Lovilink - Free URL Shortener</title>
-  <meta name="description" content='Connecting people and ideas, one link at a time. Lovilink is a free and open-source tool to simplify your digital presence.'>
+  <title>{{ $title ?? 'Lovilink - Free URL Shortener' }}</title>
+  <meta name="description" content='{{ $seoDescription ?? 'Simplify your digital presence. Lovilink is the free, open-source way to connect people and ideas, one short link at a time.' }}'>
 
   <meta name="robots" content="index, follow">
-  <meta name="keywords" content="Lovilink, shorten link, bio link, open source marketing, free url shortener, link analytics, digital presence">
+  <meta name="keywords" content="{{ $keywords ?? 'Lovilink, shorten link, bio link, open source marketing, free url shortener, link analytics, digital presence' }}">
   <meta name="author" content="Tev Immanuel">
   <meta name="google" content="notranslate">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Lovilink - Shortenlink & Bio Page Tool">
-  <meta property="og:description" content="Connecting people and ideas, one link at a time. Lovilink is a free and open-source tool to simplify your digital presence.">
+  <meta property="og:title" content="{{ $title ?? 'Lovilink - Free URL Shortener' }}">
+  <meta property="og:description" content="{{ $seoDescription ?? 'Simplify your digital presence. Lovilink is the free, open-source way to connect people and ideas, one short link at a time.' }}">
   <meta property="og:url" content="https://lovilink.com">
   <meta property="og:image" content="https://lovilink.com/assets/img/page.png">
   <meta property="fb:app_id" content="1246995273070330" />

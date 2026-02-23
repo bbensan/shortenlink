@@ -32,6 +32,12 @@ class Login extends Component
 
     public function render()
     {
-        return view('livewire.page.login')->layout('layouts.home');
+        return view('livewire.page.login')->layout('layouts.home')->layoutData(
+            [
+                'title' => 'Lovilink - Login',
+                'seoDescription' => 'Login to your Lovilink account to manage your URLs and analytics.',
+                'keywords' => 'lovilink, login, account, urls, analytics',
+            ]
+        );
     }
 }

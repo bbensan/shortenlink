@@ -17,7 +17,7 @@
             <div class="max-w-md mx-auto">
                 <!-- Logo & Title -->
                 <div class="text-center mb-8">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Create Your Account</h2>
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Create Your<span class="gradient-text"> Lovilink </span>Account</h1>
                     <p class="text-gray-600">Join thousands of users shortening links with Lovilink</p>
                 </div>
 

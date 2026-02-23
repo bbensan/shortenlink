@@ -7,7 +7,7 @@
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
                 <div class="card card-primary border-l border-r border-b border-gray-700 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-gray-200 mb-2">A Simple Start for a Bigger Vision</h3>
+                    <h1 class="text-lg font-semibold text-gray-200 mb-2">A Simple Start for a <span class="gradient-text">Bigger Vision</span></h1>
                     <p class="text-gray-300">
                         Lovilink is an original digital product created by <strong>Tev Immanuel</strong>, developed as the first step toward building the broader vision of <strong>LovIdea</strong> — a creative brand founded by Tev.
                     </p>
