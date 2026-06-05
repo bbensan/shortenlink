@@ -1,4 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import * as bcrypt from 'bcrypt';
 import { eq } from 'drizzle-orm';
 import { DatabaseService } from '../database/database.service';
 import { users } from '../database/schema';
@@ -25,14 +26,24 @@ export class UsersService {
     return user;
   }
 
+  async findByEmail(email: string) {
+    const db = this.databaseService.getDb();
+    const [user] = await db
+      .select()
+      .from(users)
+      .where(eq(users.email, email));
+    return user ?? null;
+  }
+
   async create(createUserDto: CreateUserDto) {
     const db = this.databaseService.getDb();
+    const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
     const [user] = await db
       .insert(users)
       .values({
         name: createUserDto.name,
         email: createUserDto.email,
-        password: createUserDto.password,
+        password: hashedPassword,
         username: createUserDto.username,
         status: createUserDto.status,
       })
