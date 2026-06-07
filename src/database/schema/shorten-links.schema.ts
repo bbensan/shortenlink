@@ -12,10 +12,11 @@ export const shortenLinks = pgTable('shorten_links', {
   userId: uuid('user_id').references(() => users.id, {
     onDelete: 'set null',
   }),
-  title: varchar('title', { length: 255 }).notNull(),
+  title: varchar('title', { length: 255 }),
   originalUrl: text('original_url').notNull(),
   shortenedUrl: varchar('shortened_url', { length: 50 }).notNull().unique(),
   status: varchar('status', { length: 20 }).notNull().default('active'),
+  userIp: varchar('user_ip', { length: 45 }),
   createdAt: timestamp('created_at').notNull().defaultNow(),
   updatedAt: timestamp('updated_at').notNull().defaultNow(),
 });

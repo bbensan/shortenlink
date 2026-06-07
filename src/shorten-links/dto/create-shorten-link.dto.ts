@@ -1,7 +1,6 @@
 export class CreateShortenLinkDto {
-  title: string;
+  title?: string;
   original_url: string;
-  shortened_url: string;
-  userId?: string;
+  userIp?: string;
   status?: string;
 }

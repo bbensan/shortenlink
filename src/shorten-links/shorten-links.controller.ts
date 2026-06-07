@@ -6,9 +6,11 @@ import {
   Param,
   Patch,
   Post,
+  Request,
   UseGuards,
 } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { OptionalJwtAuthGuard } from '../auth/guards/optional-jwt-auth.guard';
 import { CreateShortenLinkDto } from './dto/create-shorten-link.dto';
 import { UpdateShortenLinkDto } from './dto/update-shorten-link.dto';
 import { ShortenLinksService } from './shorten-links.service';
@@ -34,9 +36,13 @@ export class ShortenLinksController {
     return this.shortenLinksService.findOnebyShortenedUrl(shortened_url);
   }
 
+  @UseGuards(OptionalJwtAuthGuard)
   @Post()
-  create(@Body() createShortenLinkDto: CreateShortenLinkDto) {
-    return this.shortenLinksService.create(createShortenLinkDto);
+  create(
+    @Body() createShortenLinkDto: CreateShortenLinkDto,
+    @Request() req: { user?: { id: string } },
+  ) {
+    return this.shortenLinksService.create(createShortenLinkDto, req.user?.id);
   }
 
   @Patch(':id')

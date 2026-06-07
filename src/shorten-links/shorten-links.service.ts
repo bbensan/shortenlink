@@ -1,4 +1,5 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
+import { randomBytes } from 'crypto';
 import { eq } from 'drizzle-orm';
 import { DatabaseService } from '../database/database.service';
 import { shortenLinks } from '../database/schema';
@@ -7,6 +8,11 @@ import { UpdateShortenLinkDto } from './dto/update-shorten-link.dto';
 
 @Injectable()
 export class ShortenLinksService {
+  private readonly shortCodeChars =
+    'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  private readonly shortCodeLength = 6;
+  private readonly maxGenerationAttempts = 10;
+
   constructor(private readonly databaseService: DatabaseService) {}
 
   async findAll() {
@@ -48,20 +54,67 @@ export class ShortenLinksService {
     return response;
   }
 
-  async create(createShortenLinkDto: CreateShortenLinkDto) {
+  async create(createShortenLinkDto: CreateShortenLinkDto, userId?: string) {
     const db = this.databaseService.getDb();
+    const shortenedUrl = await this.generateUniqueShortCode();
+
     const [link] = await db
       .insert(shortenLinks)
       .values({
         title: createShortenLinkDto.title,
         originalUrl: createShortenLinkDto.original_url,
-        shortenedUrl: createShortenLinkDto.shortened_url,
-        userId: createShortenLinkDto.userId,
+        shortenedUrl,
+        userId: userId ?? null,
+        userIp: createShortenLinkDto.userIp,
         status: createShortenLinkDto.status,
       })
       .returning();
 
-    return link;
+    return {
+      status: 'success',
+      message: 'Shorten link created successfully',
+      data: {
+        original_url: link.originalUrl,
+        shortened_url: link.shortenedUrl,
+      },
+    };
+  }
+
+  private generateShortCode(): string {
+    const randomValues = randomBytes(this.shortCodeLength);
+    let code = '';
+
+    for (let i = 0; i < this.shortCodeLength; i++) {
+      code += this.shortCodeChars[randomValues[i] % this.shortCodeChars.length];
+    }
+
+    return code;
+  }
+
+  private async isShortCodeTaken(shortenedUrl: string): Promise<boolean> {
+    const db = this.databaseService.getDb();
+    const [existing] = await db
+      .select({ id: shortenLinks.id })
+      .from(shortenLinks)
+      .where(eq(shortenLinks.shortenedUrl, shortenedUrl))
+      .limit(1);
+
+    return !!existing;
+  }
+
+  private async generateUniqueShortCode(): Promise<string> {
+    for (let attempt = 0; attempt < this.maxGenerationAttempts; attempt++) {
+      const code = this.generateShortCode();
+      const taken = await this.isShortCodeTaken(code);
+
+      if (!taken) {
+        return code;
+      }
+    }
+
+    throw new InternalServerErrorException(
+      'Failed to generate unique shortened url. Please try again.',
+    );
   }
 
   async update(id: string, updateShortenLinkDto: UpdateShortenLinkDto) {
