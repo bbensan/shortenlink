@@ -24,10 +24,12 @@ RUN npm ci --omit=dev && npm cache clean --force
 
 COPY --from=builder /app/dist ./dist
 
+ENV PORT=3000
+
 RUN addgroup -S app && adduser -S app -G app
 
 USER app
 
 EXPOSE 3000
 
-CMD ["node", "dist/main.js"]
+CMD ["node", "dist/src/main.js"]
