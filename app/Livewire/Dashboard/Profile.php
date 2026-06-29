@@ -165,6 +165,8 @@ class Profile extends Component
         $this->newEmail = '';
         $this->emailPassword = '';
 
+        dd($user, $this->newEmail, $this->emailPassword);
+
         session()->flash('success', 'Email updated successfully. Please verify your new email address.');
     }
 
